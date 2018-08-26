@@ -1,0 +1,24 @@
+// Example program
+#include <iostream>
+#include <string>
+
+using namespace std;
+int main()
+{
+    int num1,num2;
+    
+    cout<<"Ingresa el 1er Numero";
+    cin>>num1;
+    cout<<"Ingresa el 2do Numero";
+    cin>>num2;
+    
+    if(num2%num1==0)
+    {
+        cout<<num1<<"es Multiplo de "<<num2;
+    }
+    else
+    {
+        cout<<num1<<"No es Multiplo de "<<num2;
+    }
+ 
+}
