@@ -1,0 +1,23 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+  int numero, a, b, c, d, e;
+ 
+	 cout<<"Escribe un numero entero con 5 digitos: ";
+	 cin>>numero;
+ 
+	 if (numero >= 10000){
+		 if (numero <= 99999){
+			 a = numero / 10000;
+			 b = (numero % 10000) / 1000;
+			 c = (numero % 10000) % 1000 / 100;
+			 d = ((numero % 10000) % 1000) % 100 / 10;
+			 e = (((numero % 10000) % 1000) % 100) % 10;
+ 
+			 cout<<a<<" "<<b<<" "<<c<<" "<<d<<" "<<e;
+		 }
+	 }
+}
