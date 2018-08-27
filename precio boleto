@@ -1,0 +1,27 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    float ida,completo,precio;
+    int tiempo;
+    
+    cout<<"Ingresa la distacia de ida";
+    cin>>ida;
+    cout<<"Ingresa el numero de dias de estancia";
+    cin>>tiempo;
+    completo=ida*2;
+    precio=completo*0.17;
+    
+    if(tiempo>=7 && completo>=800)
+    {
+        precio-=(precio*.30);
+        cout<<"El precio del viaje es de: "<<precio<<" Menos el 30% de descuento";
+    }
+    else
+    cout<<"El precio es de: "<<precio;
+    
+    
+
+}
