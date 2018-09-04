@@ -1,0 +1,29 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    int paisa,paisb,i=1;
+    cout<<"Ingresa la poblacion del pais A";
+    cin>>paisa;
+    
+    cout<<"Ingresa la poblacion del pais B";
+    cin>>paisb;
+    
+    int porcenA=(paisa*6)/100;
+    int porcenB=(paisb*3)/100;
+    
+    while(paisb>=paisa)
+    {
+        paisa+=porcenA;
+        paisb+=porcenB;
+        
+        if(paisa>paisb)
+        {
+            cout<<"PaisA = "<<paisa;
+            cout<<"PaisB = "<<paisb;
+            cout<<"Años Transcurridos = "<<i;
+        }
+    }
+}
