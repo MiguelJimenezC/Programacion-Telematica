@@ -1,0 +1,21 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    int base,potencia,result,num;
+    cout<<"ingresa la BASE";
+    cin>>base;
+    
+    num=base;
+    cout<<"ingresa la POTENCIA";
+    cin>>potencia;
+    
+    for(int i=1;i<=potencia-1;i++)
+    {
+            num*=base;
+    }
+    
+    cout<<"el resultado es:"<<num;
+}
