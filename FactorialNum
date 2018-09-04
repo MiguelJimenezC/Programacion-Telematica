@@ -1,0 +1,23 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+   int fact=1,numero;
+   cout<<"ingresa un numero: ";
+   cin>>numero;
+   
+   if(numero<0)
+   fact =0;
+   else if(numero==0) 
+   fact=1;
+   else
+   {
+      for (int i = 1; i <= numero; i++){
+         fact = fact*i;
+      }
+   }
+   cout<<"Factorial de "<<fact;
+  
+}
