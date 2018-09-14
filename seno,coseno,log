@@ -1,99 +1,101 @@
+// Example program
 #include <iostream>
+#include <string>
 using namespace std;
-
-int factorial(int n);
-int potencia(int base,int poten);
-float dos(float x,int n);
-float loga(int x,int n);
-
+float seno(int x ,int n);
+float cos(int x ,int n);
+float potencia(float base,int exponente);
+int factorial(int num);
+float ln(int x,int n);
 int main()
 {
-	int op,n;
-	float x;
-	
-	int resp,total,rep;
-    
-    do{
+	int x,rep,resp;
+	do{
         cout<<"                 ---Menu---                    "<<endl;
         cout<<"1--LOGARITMO N.  2--SENO.   3--COSENO.  0--SALIR"<<endl;
         cin>>resp;
-        cout<<"numero";
-        cin>>rep;
+       
         
         if(resp==1)
         {
             cout<<"Ingresa el Valor de la X:";
             cin>>x;
-            cout<<loga(x,rep);
+            cout<<ln(x,7);
         }
         else if(resp==2)
         {
              cout<<"Ingresa el Angulo:";
             cin>>x;
-            cout<<dos(x,rep);
+            cout<<seno(x,5);
         }else if(resp==3)
         {
             cout<<"Ingresa el Angulo:";
             cin>>x;
-            cout<<dos(x,rep);
+            cout<<cos(x,5);
         }
     }
     while(!(resp==0));
+
+ 
+}
+float seno(int x,int n)
+{
+    int signo=1;
+    int ov=1;
+    float suma=0;
+    
+    for(int i=1;i<=n;i++)
+    {
+    suma+=(float)potencia(x,ov)/factorial(ov)*signo;
+    ov+=2;
+    signo*=-1;
+    }
+    return(suma);
 }
 
-float loga(int x,int n)
+float cos(int x,int n)
+{
+    int signo=1;
+    int ov=0;
+    float suma=0;
+    
+    for(int i=1;i<=n;i++)
+    {
+    suma+=(float)potencia(x,ov)/factorial(ov)*signo;
+    ov+=2;
+    signo*=-1;
+    }
+    return(suma);
+}
+float ln(int x,int n)
 {
 	float sum=0;
-	for(int i=1;i<=n;i++)
-	{
-		sum+=(1.0/i)*potencia((x-1)/x,i);
-	}
-	return sum;
-}
-
-int potencia(int base,int poten)
-{
-	int pot=1;
-    for(int i=1;i<=poten;i++)
-    {
-        pot*=base;
-    }
-    return pot;
-}
-
-float dos(float x,int n)
-{
-	int num,j;
-	float suma=0.0,sen;
-	j=x;
-	j=(j*2)+2;
-	for(int i=3,num=1;num<=j;i+=2,num++)
-	{
-		sen=(potencia(x,i)/factorial(i));
-		if(num%2==0)
-		{
-			suma+=sen;
-			cout << "A";
-		}
-		else
-		{
-			suma-=sen;
-			cout << "B";
-		}
-	}
 	
-	return suma;
-}
-
-int factorial(int n)
-{
-	float fact=1.0;
 	for(int i=1;i<=n;i++)
 	{
-		fact*=i;
+		sum+=(1.0/i)*potencia((x-1.0)/x,i);
+	
 	}
-	return fact;
+	return (sum);
+	
+
+}
+float potencia(float base, int exponente)
+{
+    float pot=1;
+    for(int i=1;i<=exponente;i++)
+    {
+    pot*=base;
+    }
+return(pot);
 }
 
-
-
+int factorial(int num)
+{
+    int fact=1;
+    for(int i=1;i<=num;i++)
+    {
+    fact*=i;
+    }
+    return(fact);
+}
