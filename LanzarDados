@@ -1,0 +1,28 @@
+// Example program
+#include <iostream>
+#include <string>
+#include <time.h>
+#include <stdlib.h>
+using namespace std;
+int lanzardados();
+
+
+int main()
+{
+    srand(time(NULL));
+    
+    for(int i=1;i<=10;i++)
+        cout<<lanzardados()<<"  ";
+}
+
+
+int lanzardados()
+{
+    int dado;
+   
+    
+    dado=1+rand()%(6);
+    
+    return(dado);
+    
+}
