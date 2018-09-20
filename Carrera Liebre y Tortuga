@@ -1,0 +1,97 @@
+#include <iostream>
+#include <string>
+#include <time.h>
+#include <stdlib.h>
+using namespace std;
+int avanzarliebre();
+int avanzartortuga();
+
+
+int main()
+{
+    srand(time(NULL));
+    int liebre=0,tortuga=0;
+    do
+    {
+        liebre+=avanzarliebre();
+        tortuga+=avanzartortuga();
+        
+        cout<<"Liebre"<<liebre<<"-----"<<"Tortuga "<<tortuga<<endl;
+        
+        
+    }while(liebre<80 && tortuga<80);
+    
+    if(liebre == tortuga)
+    {
+        cout<<"EMPATARON";
+    }else if(tortuga<liebre)
+    {
+    cout<<"TORTUGA GANO";    
+    }
+    else
+    {
+        cout<<"GANO LIEBRE";
+    }
+}
+
+
+int avanzarliebre()
+{
+    int corre, avanzar;
+   
+    
+    corre=1+rand()%(10);
+    
+    if(corre<=2)
+    {
+        avanzar=0;
+        return(avanzar);
+    }
+    else if(corre<4 )
+    {
+        avanzar=9;
+        return(avanzar);
+    }
+    else if(corre<7)
+    {
+        avanzar=1;
+        return(avanzar);
+    }
+    else if(corre==8)
+    {
+        avanzar=-10;
+        return(avanzar);
+    }
+    else
+    {
+        avanzar=-2;
+        return(avanzar);
+    }
+   
+    
+}
+int avanzartortuga()
+{
+    int corre,avanza=0;
+   
+    
+    corre=1+rand()%(100);
+    
+    if(corre<40)
+    {
+        avanza=3;
+        return(avanza);
+    }
+    else if(corre<65)
+    {
+        avanza=-6;
+        return(avanza);
+    }else
+    {
+        avanza=1;
+        return(avanza);
+    }
+    
+   
+    
+}
