@@ -1,0 +1,56 @@
+// Example program
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
+
+int formulaGeneral(int a,int b, int c,float &x1,float &x2);
+
+int main()
+{
+  int a,b,c;
+  float x1,x2;
+  
+  cout<<"ingresa la a";
+  cin>>a;
+  cout<<"ingresa la b";
+  cin>>b;
+  cout<<"ingresa la c";
+  cin>>c;
+  
+  
+  formulaGeneral(a,b,c,x1,x2);
+  
+  if(formulaGeneral(a,b,c,x1,x2)==0)
+  {
+      cout<<"ERROR";
+  }else 
+  {
+      cout<<"X1 = "<<x1<<"     "<<"X2 = "<<x2<<endl;
+  }
+  
+}
+int formulaGeneral(int a,int b, int c,float &x1,float &x2)
+{
+    
+    int raiz;
+    
+    
+
+   
+    raiz=(b*b)-((4*a)*c);
+    
+    if(raiz<=0)
+    {
+        return(raiz);
+    }
+    else
+    {
+    raiz= sqrt(raiz);
+    
+    x1=float(-b-raiz)/(2*a);
+    x2=float(-b+raiz)/(2*a);
+    
+    return(1);
+    }
+}
