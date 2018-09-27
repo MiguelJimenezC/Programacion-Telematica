@@ -1,0 +1,53 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+float funcion1(int x);
+float funcion2(int x);
+
+int main()
+{
+    float num,num1;
+    
+    cout<<"Ingresa el numero superior a tabular";
+    cin>>num;
+    cout<<"Ingresa el numero inferior";
+    cin>>num1;
+    
+    if(num<0)
+    {
+         cout<<"f(x) x<0"<<endl;
+        
+        for(int i=num1;i<=num;i++)
+        {
+        cout<<i<<"  "<<funcion1(i)<<endl;
+        }
+    }
+    else 
+    {
+        cout<<"f(x) x>=0"<<endl;
+        
+        for(int i=num1;i<=num;i++)
+        {
+        cout<<i<<"  "<<funcion2(i)<<endl;
+        }
+    }
+  
+}
+float funcion1(int x)
+{
+    float num;
+    
+    num=(3*(x*x)/(2*x))+(6*x);
+    
+    return(num);
+    
+}
+float funcion2(int x)
+{
+    float num,num1,total;
+    num=(6*(x*x*x)-(3*x));
+    num1=(2*(x*x)-3);
+    total=num/num1;
+    return(total);
+}
