@@ -1,0 +1,126 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int Menu();
+
+void tabla(int op);
+void tablaxy();
+float formula1(int x);
+float formula2(int x,int y);
+float formula3(int x);
+
+int main()
+{
+	int x,y,op;
+	do
+	{
+		op=Menu();
+		if(op==1)
+		{
+			
+				tabla(op);
+			
+		}else if(op==2)
+			{
+				cout << "Ingresa el valor de X: ";
+				cin >> x;
+				cout << "\nIngresa el valor de Y: ";
+				cin >> y;
+				cout << endl;
+				tablaxy();
+				
+			}else if(op==3)
+			{
+				tabla(op);
+				
+			}else
+			{
+				cout << "Error!!" << endl;
+			}
+		
+		
+		
+	}while (op!=0);
+	
+	
+	return 0;
+}
+
+
+
+void tabla(int op)
+{
+	int tabla;
+	cout << "Valor maximo para tabular: ";
+	cin >> tabla;
+	cout << endl;
+	cout << "X	F(x)" << endl;
+	for(int i=0;i<=tabla;i++)
+	{
+		if(op==1)
+		{
+			cout << i << "	" << formula1(i) << endl;
+		}
+		if(op==3)
+		{
+			cout << i << "	" << formula3(i) << endl;
+		}
+	}
+	cout << endl;
+}
+
+int Menu()
+{
+	int op;
+
+	cout << "1  -- Funcion " << endl;
+	cout << "2  -- Funcion " << endl;
+	cout << "3  -- Funcion " << endl;
+	cout << "> ";
+	cin >> op;
+
+	return op;
+}
+
+float formula1(int x)
+{
+	float r=0;
+	r=2*pow(x,2);
+	r=pow(r,1/3);
+	r/=(2*x)-3;
+	return r;
+}
+
+float formula2(int x,int y)
+{
+	float r=0;
+	r=(2*x*y)-(3*y);
+	return r;	
+}
+
+float formula3(int x)
+{
+	float r=0;
+	if(x>0)
+	{
+		r=2*pow(x,2);
+		return r;
+	}
+	else
+	{
+		r=3/pow(x,3);
+		return r;
+	}
+}
+void tablaxy()
+{
+	cout << "X	Y	F(x,y)" << endl;
+	for(int i=1;i<=5;i++)
+	{
+		for(int j=1;j<=5;j++)
+		{
+			cout << i << "	" << j  << "	" << formula2(i,j) << endl;
+		}
+	}
+}
