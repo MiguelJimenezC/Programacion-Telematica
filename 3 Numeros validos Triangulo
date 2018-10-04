@@ -1,0 +1,45 @@
+// Example program
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int ladostriangulos(int a,int b, int c);
+
+int main()
+{
+    int x,j,i;
+    //cout<<"Ingresa a,b,c";
+    //cin>>a,b,c;
+    
+  for( j=1;j<=200;j++)
+  {
+    for( i=1;i<=200;i++)
+    {
+      for( x=1;x<=200;x++)
+      {
+        
+             if(ladostriangulos(j,i,x)==1)
+             {
+                cout<<j<<" "<<i<<" "<<x<<" == "<<"VALIDOS PARA EL TRIANGULO"<<endl;
+             }
+              
+    } }
+  }
+
+}
+
+int ladostriangulos(int a,int b, int c)
+{
+    int suma=(a*a)+(b*b);
+    int pot=(c*c);
+    
+    if(suma==pot)
+    {
+        return(1);
+    }
+    else 
+    {
+        return(0);
+    }
+}
