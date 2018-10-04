@@ -1,0 +1,50 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+int promedio(int a,int b,int c, int d, int e);
+void mayor(int a,int b,int c, int d, int e, int promedio); 
+int main()
+{
+    int a,b,c,e,d;
+    
+    cout<<"Ingresa 5 numeros";
+    cin>>a;
+    cin>>b;
+    cin>>c;
+    cin>>d;
+    cin>>e;
+  cout<<"El Promedio = "<<promedio(a,b,c,d,e)<<endl;
+   mayor(a,b,c,d,e,promedio(a,b,c,d,e));
+  
+}
+int promedio(int a,int b,int c, int d, int e)
+{
+    int suma=0;
+    suma=(a+b+c+d+e)/5;
+    return(suma);
+}
+void mayor(int a,int b,int c, int d, int e, int promedio)
+{
+    if(a>promedio)
+    {
+        cout<<a<< " es mayor al promedio"<<endl;
+    }
+    if(b>promedio)
+    {
+        cout<<b<< " es mayor al promedio"<<endl;
+    }
+     if(c>promedio)
+    {
+        cout<<c<< " es mayor al promedio"<<endl;
+    }
+     if(d>promedio)
+    {
+        cout<<d<< " es mayor al promedio"<<endl;
+    }
+     if(e>promedio)
+    {
+        cout<<e<< " es mayor al promedio"<<endl;
+    }
+    
+}
