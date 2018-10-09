@@ -1,0 +1,69 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+int lanzardados();
+
+int main()
+{
+    srand(time(NULL));
+    int lanzardado[100];
+    int numerodeveces[6]={0};
+    
+    for(int i=1;i<=100;i++)
+    {
+        lanzardado[i]=lanzardados();
+    }
+    
+    for(int j=0;j<=100;j++)
+    {
+        if(lanzardado[j]==1)
+        {
+            int uno=1;
+            numerodeveces[0]++;
+            uno++;
+        }
+        else if(lanzardado[j]==2)
+        {
+            int dos=1;
+            numerodeveces[1]++;
+            dos++;
+        }else if(lanzardado[j]==3)
+        {
+            int tres=1;
+            numerodeveces[2]++;
+            tres++;
+        }else if(lanzardado[j]==4)
+        {
+            int cuatro=1;
+            numerodeveces[3]++;
+            cuatro++;
+        }else if(lanzardado[j]==5)
+        {
+            int cinco=1;
+            numerodeveces[4]++;
+            cinco++;
+        }else if(lanzardado[j]==6)
+        {
+            int seis=1;
+            numerodeveces[5]++;
+            seis++;
+        }
+    }
+    
+    for(int i=0;i<6;i++)
+    {
+        cout<<i+1<<"  "<<numerodeveces[i]<<endl;
+    }
+}
+
+int lanzardados()
+{
+    int dado;
+   
+    
+    dado=1+rand()%(6);
+    
+    return(dado);
+    
+}
