@@ -1,0 +1,44 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+int lanzardados();
+void histograma(int x);
+
+int main()
+{
+    srand(time(NULL));
+    int lanzardado[100];
+   
+    
+    for(int i=1;i<=100;i++)
+    {
+        lanzardado[i]=lanzardados();
+    }
+    
+    for(int j=0;j<=100;j++)
+    {
+        int num=lanzardado[j];
+        cout<<num<<"    ";
+        histograma(num);
+    }
+}
+
+int lanzardados()
+{
+    int sumadado;
+   
+    
+    sumadado=1+rand()%(6);
+    sumadado+=1+rand()%(6);
+    return(sumadado);
+    
+}
+void histograma(int x)
+{   
+    for(int j=0;j<=x-1;j++)
+    {
+            cout<<"*";     
+    }
+   cout<<endl;
+}
