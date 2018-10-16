@@ -1,0 +1,98 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+void llenar(int numero[],int tam,int num);
+void mostrar(int numero[],int tam);
+int sumar(int numero[],int tam);
+void mostrarinversa(int numero[],int tam);
+void girararriba(int numero[],int tam);
+
+int main()
+{
+    int numero[10],tam=10,num,op;
+    
+    do
+    { 
+        cout<<"---MENU---";
+
+        cout<<"1- llenar"<<endl;
+        cout<<"2- Mostrar"<<endl;
+        cout<<"3- Sumar"<<endl;
+        cout<<"4- MostarInverso"<<endl;
+        cout<<"5- girararriba"<<endl;
+        cout<<"6- salir"<<endl;
+        cin>>op;
+        if(op==1)
+        {
+            cout<<"Ingresa un numero";
+            cin>>num;
+            llenar(numero[],tam,num);        
+        }
+        else if(op==2)
+        {
+            mostar(numero[],tam);
+        }
+        else if(op==3)
+        {
+            cout<<suma(numero[],tam);
+        }
+        else if(op==4)
+        {
+            mostrarinverso()
+        }
+    
+    }while(op==6);
+    
+    
+    
+}
+void llenar(numero[],tam,num)
+{
+    for(int i=0;i<10;i++)
+    {
+        numero[i]=num;
+        num++;
+    }
+}
+int sumar(numero[],tam)
+{
+    for(int h=0;h<tam;h++)
+    {
+      suma+=numero[h];
+    }
+    
+    return(suma);
+}
+void mostrar(numero[],tam)
+{
+    cout<<"TABLA";
+    for(int j=0;j<10;j++)
+    {
+       
+        cout<<numero[j]<<endl;
+    }
+}
+void mostrarinversa(numero[],tam)
+{
+    cout<<"TABLA INVERSA"<<endl;
+    for(int x=9;x>=0;x--)
+    {
+       
+        cout<<numero[x]<<endl;
+    }
+}
+void girararriba(numero[],tam)
+{
+    int aux;
+    
+    aux=numero[0];
+    numero[9]=aux;
+    cout<<"GIRAR";
+    for(int x=0;x<tam-1;x++)
+    {       
+       numero[x]=numero[x+1];
+       
+    }
+   
+}
