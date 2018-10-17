@@ -7,6 +7,8 @@ void mostrar(int numero[],int tam);
 int sumar(int numero[],int tam);
 void mostrarinversa(int numero[],int tam);
 void girararriba(int numero[],int tam);
+void girarabajo(int numero[],int tam);
+void invertir(int numero[],int tam);
 
 int main()
 {
@@ -21,42 +23,60 @@ int main()
         cout<<"3- Sumar"<<endl;
         cout<<"4- MostarInverso"<<endl;
         cout<<"5- girararriba"<<endl;
-        cout<<"6- salir"<<endl;
+        cout<<"6- girarabajo"<<endl;
+        cout<<"7- invertir"<<endl;    
+        cout<<"8- salir"<<endl;
         cin>>op;
         if(op==1)
         {
             cout<<"Ingresa un numero";
             cin>>num;
-            llenar(numero[],tam,num);        
+            llenar(numero,tam,num);        
         }
         else if(op==2)
         {
-            mostar(numero[],tam);
+            mostrar(numero,tam);
         }
         else if(op==3)
         {
-            cout<<suma(numero[],tam);
+            cout<<sumar(numero,tam);
         }
         else if(op==4)
         {
-            mostrarinverso()
+            mostrarinversa(numero,tam);
+        }else if(op==5)
+        {
+            girararriba(numero,tam);
+        }else if(op==6)
+        {
+            girarabajo(numero,tam);
+        }
+        else if(op==7)
+        {
+            invertir(numero,tam);
+        }
+        else if(op==8)
+        {
+            girarabajo(numero,tam);
         }
     
-    }while(op==6);
+    }while(!(op==8));
     
     
     
 }
-void llenar(numero[],tam,num)
+void llenar(int numero[],int tam, int num)
 {
     for(int i=0;i<10;i++)
     {
         numero[i]=num;
         num++;
     }
+
 }
-int sumar(numero[],tam)
+int sumar(int numero[],int tam)
 {
+    int suma=0;
     for(int h=0;h<tam;h++)
     {
       suma+=numero[h];
@@ -64,7 +84,7 @@ int sumar(numero[],tam)
     
     return(suma);
 }
-void mostrar(numero[],tam)
+void mostrar(int numero[],int tam)
 {
     cout<<"TABLA";
     for(int j=0;j<10;j++)
@@ -73,7 +93,7 @@ void mostrar(numero[],tam)
         cout<<numero[j]<<endl;
     }
 }
-void mostrarinversa(numero[],tam)
+void mostrarinversa(int numero[],int tam)
 {
     cout<<"TABLA INVERSA"<<endl;
     for(int x=9;x>=0;x--)
@@ -82,17 +102,45 @@ void mostrarinversa(numero[],tam)
         cout<<numero[x]<<endl;
     }
 }
-void girararriba(numero[],tam)
+void girararriba(int numero[],int tam)
 {
     int aux;
     
     aux=numero[0];
-    numero[9]=aux;
-    cout<<"GIRAR";
+  
+    cout<<"GIRAR"<<endl;
     for(int x=0;x<tam-1;x++)
     {       
        numero[x]=numero[x+1];
        
     }
+      numero[9]=aux;
+    mostrar(numero,tam);
+}
+void girarabajo(int numero[],int tam)
+{
+    int aux;
+    
+    aux=numero[9];
    
+    cout<<"GIRAR"<<endl;
+    for(int x=9;x>0;x--)
+    {       
+       numero[x]=numero[x-1];
+       
+    }
+     numero[0]=aux;
+    mostrar(numero,tam);
+}
+void invertir(int numero[],int tam)
+{
+    int aux;
+    for(int i=0;i<tam;i++)
+    {
+        aux=numero[i];
+        numero[i]=numero[tam-i];
+        numero[tam-i]=aux;
+        cout<<numero[i]<<endl;
+    }
+     mostrar(numero,tam);
 }
