@@ -3,25 +3,56 @@
 #include <string>
 using namespace std;
 int lanzardados();
-void histograma(int x);
+void histograma(int lanzardado[],int x);
+
 
 int main()
 {
     srand(time(NULL));
-    int lanzardado[100];
+    int lanzardado[11];
    
     
-    for(int i=1;i<=100;i++)
-    {
-        lanzardado[i]=lanzardados();
-    }
+   int num;
     
-    for(int j=0;j<=100;j++)
-    {
-        int num=lanzardado[j];
-        cout<<num<<"    ";
-        histograma(num);
-    }
+    for(int i=0;i<100;i++)
+	{
+	num=lanzardados();;
+		if(num==2)
+			lanzardado[0]++;
+		else
+		if(num==3)
+			lanzardado[1]++;
+		else
+		if(num==4)
+			lanzardado[2]++;
+		else
+		if(num==5)
+			lanzardado[3]++;
+		else
+		if(num==6)
+			lanzardado[4]++;
+		else
+		if(num==7)
+			lanzardado[5]++;
+		else
+		if(num==8)
+			lanzardado[6]++;
+		else
+		if(num==9)
+			lanzardado[7]++;
+		else
+		if(num==10)
+			lanzardado[8]++;
+		else
+		if(num==11)
+			lanzardado[9]++;
+		else
+		if(num==12)
+			lanzardado[10]++;
+		
+	}
+   histograma(lanzardado,11);
+		
 }
 
 int lanzardados()
@@ -34,11 +65,15 @@ int lanzardados()
     return(sumadado);
     
 }
-void histograma(int x)
-{   
-    for(int j=0;j<=x-1;j++)
-    {
-            cout<<"*";     
-    }
-   cout<<endl;
+void histograma(int lanzardado[],int x)
+{
+	for(int i=0;i<x;i++)
+	{
+		cout << lanzardado[i]<< "\t";
+		for(int j=0;j<lanzardado[i];j++)
+		{
+			cout << "*";
+		}
+		cout << endl;
+	}
 }
