@@ -135,7 +135,7 @@ void girarabajo(int numero[],int tam)
 void invertir(int numero[],int tam)
 {
     int aux;
-    for(int i=0;i<tam;i++)
+    for(int i=0;i<tam/2;i++)
     {
         aux=numero[i];
         numero[i]=numero[tam-i];
