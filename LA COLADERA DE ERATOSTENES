@@ -1,0 +1,48 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+void llenar(int numeros[],int tam);
+void multiplos(int numeros[],int tam);
+int main()
+{
+    int tam=1000,numeros[1000];
+    llenar(numeros,tam);
+    multiplos(numeros,tam);
+    
+    for(int i=0;i<1000;i++)
+    {
+        if(numeros[i]==1)
+        {
+            cout<<i<<endl;
+        }
+    }
+   
+
+}
+
+void llenar(int numeros[],int tam)
+{
+    numeros[0]=false;
+    numeros[1]=false;
+    for(int i=2;i<tam;i++)
+    {
+        numeros[i]=true;
+    }
+}
+void multiplos(int numeros[],int tam)
+{
+    int num;
+    for(int i=2;i<tam;i++)
+    {
+        num=i;
+        
+        if(i<1000)
+        {
+            for(int a=num+num;a<tam;a+=num)
+            {
+                numeros[a]=false;
+            }
+        }
+    }
+}
