@@ -1,0 +1,81 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+void llenartablero(int tablero[],int tam);
+int lanzardados();
+
+int main()
+{
+    int tablero[101],tam=101,j1=0,j2=0;
+    srand(time(NULL));
+    
+    llenartablero(tablero,tam);
+    tablero[5]=10;
+    tablero[12]=17;
+    tablero[20]=28;
+    tablero[30]=38;
+    tablero[40]=45;
+    tablero[50]=55;
+    tablero[68]=75;
+    tablero[77]=80;
+    tablero[85]=90;
+    tablero[90]=98;
+    
+    tablero[9]=3;
+    tablero[15]=10;
+    tablero[23]=17;
+    tablero[38]=28;
+    tablero[44]=35;
+    tablero[56]=25;
+    tablero[70]=55;
+    tablero[83]=67;
+    tablero[87]=70;
+    tablero[95]=38;
+    
+    
+    
+    while(j1<100 && j2<100)
+    {
+        j1+=lanzardados();
+        j1=tablero[j1];
+        
+        if(j1>tablero[j1])
+        {
+            cout<<"jugador 1 = "<<j1<<"casilla serpiente "<<tablero[j1];
+        }
+        else
+        {
+            cout<<"jugador 1 = "<<j1<<"casilla escalera "<<tablero[j1];
+        }
+        cout<<"Jugador 1 = "<<j1<<endl;
+        
+        j2+=lanzardados();
+        j2=tablero[j2];
+        cout<<"Jugador 2 = "<<j2<<endl;
+        
+    }
+    if(j1>j2)
+    {
+        cout<<"jugador 1 Gano!";
+    }
+    else
+    {
+        cout<<"jugador 2 Gano";
+    }
+
+}
+int lanzardados()
+{
+    int sumadado;
+   
+    sumadado=1+rand()%(6);
+    return(sumadado);
+}
+void llenartablero(int tablero[],int tam)
+{
+    for(int i=1;i<tam;i++)
+    {
+        tablero[i]=i;
+    }
+}
