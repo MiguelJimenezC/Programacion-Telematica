@@ -1,0 +1,69 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+void comprimir(int vector[],int vector1[],int tam);
+void llenar(int vector[],int vector1[],int tam);
+void imprimir(int vector[],int tam);
+
+int main()
+{
+    int tam;
+    cout<<"ingresa el tamaño de arreglo";
+    cin>>tam;
+    int vector[tam];
+    int vector1[tam];
+    
+    llenar(vector,vector1,tam);
+    comprimir(vector,vector1,tam);
+    imprimir(vector1,tam);
+}
+void comprimir(int vector[],int vector1[],int tam)
+{
+	int contador=0,num;
+    for(int i=0;i<tam;i++)
+    {
+    	if(vector[i]==vector[i+1])
+    	{
+    		contador++;
+    		if(i==(tam-1))
+    		{
+    				num=vector[i];
+					vector1[i-contador]=num;
+			}
+		}
+		else 
+		{
+			
+			num=vector[i];
+			vector1[i-contador]=num;
+			
+		
+		}
+	}
+
+
+}
+void llenar(int vector[],int vector1[],int tam)
+{
+    for(int i=0;i<tam;i++)
+    {
+        cout<<i+1<<" -> ";
+        cin>>vector[i];
+    }
+     for(int i=0;i<tam;i++)
+    {
+        vector1[i]=-1;
+    }
+
+}
+void imprimir(int vector1[],int tam)
+{
+		cout<<"  "<<endl;
+	for(int i=0;i<tam;i++)
+	{
+		cout<<i+1<<" -> ";
+		cout<<vector1[i]<<endl;
+	}
+
+}
