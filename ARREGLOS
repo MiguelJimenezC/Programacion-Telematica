@@ -1,0 +1,74 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+void agregar(int arreglo[][5],int ren);
+void mostrar (int arreglo[][5],int ren);
+void agregarinverso (int arreglo[][5],int ren);
+void mostrardipri(int arreglo[][5],int ren);
+void mostrardisec(int arreglo[][5],int ren);
+int main()
+{
+    int arreglo[5][5];
+    int ren=5;
+    
+    agregar(arreglo,ren);
+    mostrar(arreglo,ren);
+    cout<<"-------------------------------------------"<<endl;
+    agregarinverso(arreglo,ren);
+    mostrar(arreglo,ren);
+    cout<<"-------------------------------------------"<<endl;
+    mostrardipri(arreglo,ren);
+    cout<<"-------------------------------------------"<<endl;
+    mostrardisec(arreglo,ren);
+}
+void agregar(int arreglo[][5],int ren)
+{
+    int cont=1;
+    for(int renglon=0;renglon<ren;renglon++)
+        for(int colum=0;colum<5;colum++)
+        {
+            arreglo[renglon][colum]=cont++;
+        }
+}
+void mostrar (int arreglo[][5],int ren)
+{   
+    for(int renglon=0;renglon<ren;renglon++)
+        for(int colum=0;colum<5;colum++)
+        {
+            cout<<" "<<arreglo[renglon][colum];
+            if(colum==4)
+            {
+                cout<<""<<endl;
+            }
+        }
+}
+void agregarinverso (int arreglo[][5],int ren)
+{   
+  int cont=1;
+    for(int colum=4;colum>=0;colum--)
+        for(int renglon=ren-1;renglon>=0;renglon--)
+        {
+            arreglo[renglon][colum]=cont++;
+            
+        }
+}
+void mostrardipri(int arreglo[][5],int ren)
+{
+  for(int renglon=0;renglon<ren;renglon++)
+    for(int colum=0;colum<5;colum++)
+    
+    if(colum==renglon)
+    {
+      cout<<arreglo[renglon][colum]<<" ";
+    }
+
+}
+void mostrardisec(int arreglo[][5],int ren)
+{
+  
+  for(int colum=4;colum>=0;colum--)
+  cout<<arreglo[0][colum]<<" ";
+    
+  
+}
