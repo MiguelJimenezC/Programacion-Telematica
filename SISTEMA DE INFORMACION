@@ -1,0 +1,152 @@
+// Example program
+#include <iostream>
+#include <string>
+#include <time.h>
+#include <stdlib.h>
+using namespace std;
+void veclimpio(int vector[],int tam);
+void agregar(int vector[],int tam,int cont);
+void eliminar(int vector[],int tam, int numeliminar); 
+int buscar (int vector[], int tam, int numbuscar);
+void modificar(int vector[], int tam, int num,int numnuevo);
+void insertar(int vector[],int tam,int numinsert, int cont);
+int main()
+{
+    srand(time(NULL));
+    int vector[20],op,tam=20,numeliminar,cont=0,numbuscar,numinsert,numnuevo,num;
+    veclimpio(vector,tam);
+    do
+    {
+        cout<<"-----MENU-----"<<endl;
+        cout<<"1. Agregar"<<endl;
+        cout<<"2. Eliminar"<<endl;
+        cout<<"3. Buscar"<<endl;
+        cout<<"4. Modificar"<<endl;
+        cout<<"5. Insertar"<<endl;
+        cout<<"6. Reporte"<<endl;
+        cout<<"0. Salir"<<endl;
+        cin>>op;
+        
+        if(op==1)
+        {
+            agregar(vector,tam,cont);
+            cout<<"-Elemento Agregado-"<<endl;
+            cont++;
+        }
+        else if(op==2)
+        {
+            cout<<"Ingrese el Dato a ELIMINAR"<<endl;
+            cin>>numeliminar;
+            eliminar(vector,tam,numeliminar);
+            cont--;
+            cout<<"-Elemento Eliminado-"<<endl;
+        }
+        else if(op==3)
+        {
+             cout<<"Ingrese el Dato a BUSCAR"<<endl;
+             cin>>numbuscar;
+             cout<<"Posicio: "<<buscar(vector,tam,numbuscar);
+        }
+        else if(op==4)
+        {
+            cout<<"Ingresa el Dato a MODIFICAR"<<endl;
+            cin>>num;
+            cout<<"Ingresa el NUEVO DATO"<<endl;
+            cin>>numnuevo;
+            
+            modificar(vector,tam,num,numnuevo);
+        }
+        else if(op==5)
+        {
+            cout<<"Ingresa la POSICION A INSERTAR menor a "<<cont-1<<endl;
+            cin>>numinsert;
+            if(numinsert>cont-1)
+            {
+                cout<<"ERROR"<<endl;
+            }
+            else
+            {
+                insertar(vector,tam,numinsert,cont);
+            }
+        }
+        else if(op==6)
+        {
+            for(int i=0;i<tam;i++)
+            {
+                cout<<"["<<i<<"] = "<<vector[i]<<endl;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+        
+    }while(op!=7);
+}
+void agregar(int vector[],int tam,int cont)
+{
+    int num;
+    num=10+rand()%(301-10);
+    vector[cont]=num;
+}
+void eliminar(int vector[],int tam, int numeliminar)
+{
+    
+    for(int i=0;i<tam;i++)
+    {
+        if(vector[i]==numeliminar)
+        {
+            for(int x=i;x<tam-1;x++)
+            {
+                vector[x]=vector[x+1];
+            }
+            vector[19]=false;
+        }
+    }
+}
+int buscar (int vector[], int tam, int numbuscar)
+{
+    int conte=0;
+    for(int i=0;i<tam;i++)
+    {
+        if(vector[i]==numbuscar)
+        {
+            return(i);
+        }
+        else
+        {
+            conte++;
+        }
+    }
+    if(conte==tam)
+    {
+        return(-1);
+    }
+}
+void modificar(int vector[], int tam, int num,int numnuevo)
+{
+    for(int i=0;i<tam;i++)
+    {
+        if(vector[i]==num)
+        {
+            vector[i]=numnuevo;
+        }
+    }
+}
+void insertar(int vector[],int tam,int numinsert,int cont)
+{
+    int num,valor;
+    for(int i=cont;i>numinsert;i--)
+    {
+        valor=vector[i];
+        vector[i+1]=valor;
+    }
+    num=10+rand()%(301-10);
+    vector[numinsert]=num;
+    
+}
+void veclimpio(int vector[],int tam)
+{
+    for(int i=0;i<tam;i++)
+       vector[i]=false;
+}
