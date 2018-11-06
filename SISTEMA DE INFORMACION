@@ -136,7 +136,7 @@ void modificar(int vector[], int tam, int num,int numnuevo)
 void insertar(int vector[],int tam,int numinsert,int cont)
 {
     int num,valor;
-    for(int i=cont;i>numinsert;i--)
+    for(int i=cont;i>=numinsert;i--)
     {
         valor=vector[i];
         vector[i+1]=valor;
