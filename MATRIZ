@@ -7,6 +7,7 @@ void mostrar (int arreglo[][5],int ren);
 void agregarinverso (int arreglo[][5],int ren);
 void mostrardipri(int arreglo[][5],int ren);
 void mostrardisec(int arreglo[][5],int ren);
+void mostrarfuera(int arreglo[][5],int ren);
 int main()
 {
     int arreglo[5][5];
@@ -18,9 +19,12 @@ int main()
     agregarinverso(arreglo,ren);
     mostrar(arreglo,ren);
     cout<<"-------------------------------------------"<<endl;
-    mostrardipri(arreglo,ren);
+    mostrardipri(arreglo,ren);cout<<endl;
     cout<<"-------------------------------------------"<<endl;
-    mostrardisec(arreglo,ren);
+    mostrardisec(arreglo,ren);cout<<endl;
+    cout<<"-------------------------------------------"<<endl;
+    mostrarfuera(arreglo,ren);
+    
 }
 void agregar(int arreglo[][5],int ren)
 {
@@ -55,20 +59,41 @@ void agregarinverso (int arreglo[][5],int ren)
 }
 void mostrardipri(int arreglo[][5],int ren)
 {
+    cout<<"Diagonal Principal"<<endl; 
   for(int renglon=0;renglon<ren;renglon++)
     for(int colum=0;colum<5;colum++)
     
     if(colum==renglon)
     {
-      cout<<arreglo[renglon][colum]<<" ";
+       
+       cout<<arreglo[renglon][colum]<<" ";
     }
 
 }
 void mostrardisec(int arreglo[][5],int ren)
 {
   
-  for(int colum=4;colum>=0;colum--)
-  cout<<arreglo[0][colum]<<" ";
+  cout<<"Diagonal Inversa"<<endl;
+  for(int renglon=0;renglon<ren;renglon++)
+    for(int colum=0;colum<5;colum++)
     
+    if(colum+renglon==ren-1)
+    {
+       
+       cout<<arreglo[renglon][colum]<<" ";
+    }
   
 }
+void mostrarfuera(int arreglo[][5],int ren)
+{
+     cout<<"Valores fuera de la diagonal Principal"<<endl; 
+  for(int renglon=0;renglon<ren;renglon++)
+    for(int colum=0;colum<5;colum++)
+    
+    
+    if(colum!=renglon)
+    {
+       cout<<arreglo[renglon][colum]<<" ";
+    }
+}
+
