@@ -1,3 +1,7 @@
+
+
+
+
 // Example program
 #include <iostream>
 #include <string>
@@ -86,14 +90,38 @@ void mostrardisec(int arreglo[][5],int ren)
 }
 void mostrarfuera(int arreglo[][5],int ren)
 {
-     cout<<"Valores fuera de la diagonal Principal"<<endl; 
-  for(int renglon=0;renglon<ren;renglon++)
+    int cont=0;
+     cout<<"Arriba de la diagonal Principal"<<endl; 
+     for(int renglon=0;renglon<ren;renglon++)
+     for(int colum=0;colum<5;colum++)
+    
+     if(colum!=renglon)
+     {
+         if(renglon<=colum)
+         cout<<arreglo[renglon][colum]<<" ";
+     }
+     cout<<endl;
+     cout<<"-----------------------------------------"<<endl;
+      cout<<"Abajo de la diagonal Principal"<<endl; 
+     for(int renglon=0;renglon<ren;renglon++)
+     for(int colum=0;colum<5;colum++)
+    
+     if(colum!=renglon)
+     {
+         if(renglon>=colum)
+         cout<<arreglo[renglon][colum]<<" ";
+     }
+     
+     cout<<endl;
+     cout<<"-----------------------------------------"<<endl;
+     
+      cout<<"Diagonal Inversa"<<endl;
+    for(int renglon=0;renglon<ren;renglon++)
     for(int colum=0;colum<5;colum++)
     
-    
-    if(colum!=renglon)
+    if(colum+renglon!=ren-1)
     {
-       cout<<arreglo[renglon][colum]<<" ";
+        if(renglon>=)
+        cout<<arreglo[renglon][colum]<<" ";
     }
 }
-
