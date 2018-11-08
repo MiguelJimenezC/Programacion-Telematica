@@ -1,7 +1,3 @@
-
-
-
-
 // Example program
 #include <iostream>
 #include <string>
@@ -12,6 +8,8 @@ void agregarinverso (int arreglo[][5],int ren);
 void mostrardipri(int arreglo[][5],int ren);
 void mostrardisec(int arreglo[][5],int ren);
 void mostrarfuera(int arreglo[][5],int ren);
+void girarprincipal(int arreglo[][5],int ren);
+void girarsecundaria(int arreglo[][5],int ren);
 int main()
 {
     int arreglo[5][5];
@@ -22,12 +20,23 @@ int main()
     cout<<"-------------------------------------------"<<endl;
     agregarinverso(arreglo,ren);
     mostrar(arreglo,ren);
+    agregar(arreglo,ren);
+
     cout<<"-------------------------------------------"<<endl;
     mostrardipri(arreglo,ren);cout<<endl;
     cout<<"-------------------------------------------"<<endl;
     mostrardisec(arreglo,ren);cout<<endl;
     cout<<"-------------------------------------------"<<endl;
-    mostrarfuera(arreglo,ren);
+    mostrarfuera(arreglo,ren);cout<<endl;
+    cout<<"-------------------------------------------"<<endl;
+    girarprincipal(arreglo,ren);
+    mostrar(arreglo,ren);
+    agregar(arreglo,ren);
+    cout<<endl;
+    cout<<"-------------------------------------------"<<endl;
+    girarsecundaria(arreglo,ren);
+    mostrar(arreglo,ren);
+    
     
 }
 void agregar(int arreglo[][5],int ren)
@@ -90,7 +99,7 @@ void mostrardisec(int arreglo[][5],int ren)
 }
 void mostrarfuera(int arreglo[][5],int ren)
 {
-    int cont=0;
+    int cont=4,conte=4;
      cout<<"Arriba de la diagonal Principal"<<endl; 
      for(int renglon=0;renglon<ren;renglon++)
      for(int colum=0;colum<5;colum++)
@@ -115,13 +124,66 @@ void mostrarfuera(int arreglo[][5],int ren)
      cout<<endl;
      cout<<"-----------------------------------------"<<endl;
      
-      cout<<"Diagonal Inversa"<<endl;
+      cout<<"Abajo Diagonal Inversa"<<endl;
     for(int renglon=0;renglon<ren;renglon++)
-    for(int colum=0;colum<5;colum++)
-    
-    if(colum+renglon!=ren-1)
     {
-        if(renglon>=)
-        cout<<arreglo[renglon][colum]<<" ";
+        for(int colum=0;colum<5;colum++)
+        {
+            if(colum+renglon!=ren-1)
+            {
+                if(cont>=colum)
+                cout<<arreglo[renglon][colum]<<" ";
+            }
+        }  
+        cont--;
     }
+     cout<<endl;
+     cout<<"-----------------------------------------"<<endl;
+    
+    cout<<"Arriba Diagonal Inversa"<<endl;
+    for(int renglon=0;renglon<ren;renglon++)
+    {
+        for(int colum=0;colum<5;colum++)
+        {
+            if(colum+renglon!=ren-1)
+            {
+                if(conte<=colum)
+                cout<<arreglo[renglon][colum]<<" ";
+            }
+        }  
+        conte--;
+    }
+}
+void girarprincipal(int arreglo[][5],int ren)
+{
+    int aux=0;
+	cout<<"Girar Diagonal Principal"<<endl;
+    for(int c=0;c<ren;c++)
+    {    for(int r=c+1;r<5;r++)
+        {
+                 if(c!=r)
+                {
+                    aux=arreglo[c][r];
+                    arreglo[c][r]=arreglo[r][c];
+                    arreglo[r][c]=aux;
+                }
+         }  
+     }
+}
+void girarsecundaria(int arreglo[][5],int ren)
+{
+	int aux=0,col,fil,num=3;
+	
+	cout<<"Girar Diagonal Inversa"<<endl;
+  	for(int f=0,col=4;col>0,f<ren;f++,col--)
+    for(int c=num-f,fil=ren-col;c>=0,fil<ren;fil++,c--)
+    
+    if(c+f!=ren-1)
+    {
+    	aux=arreglo[f][c];
+        arreglo[f][c]=arreglo[fil][col];
+        arreglo[fil][col]=aux;
+      
+    }
+
 }
