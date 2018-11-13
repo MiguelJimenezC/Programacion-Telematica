@@ -1,0 +1,140 @@
+#include <iostream>
+void inicializar(int matriz[][5],int ren);
+void agregar(int matriz[][5],int ren);
+void articulos(int matriz[][5],int ren);
+void vendedor(int matriz[][5],int ren);
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	
+	int matriz[6][5],ren=6,vendedors,producto,cant,op;
+	
+	inicializar(matriz,ren);
+	agregar(matriz,ren);
+	articulos(matriz,ren);
+	vendedor(matriz,ren);
+	return 0;
+}
+void inicializar(int matriz[][5],int ren)
+{
+	for(int f=0;f<=ren;f++)
+		for(int c=0;c<=5;c++)
+			matriz[f][c]=0;
+}
+void agregar(int matriz[][5],int ren)
+{
+	int vendedors,producto,cant,op;
+	do
+	{
+		cout<<"ingresa el numero de vendedor"<<endl;
+		cin>>vendedors;
+		cout<<"ingresa el numero de producto"<<endl;
+		cin>>producto;
+		cout<<"ingresa la cantidad"<<endl;
+		cin>>cant;
+		
+		matriz[producto][vendedors]+=cant;
+		cout<<matriz[producto][vendedors]<<endl;
+		producto=0;
+		vendedors=0;
+		cant=0;
+		
+		cout<<"Quieres seguir agregando"<<endl<<"1. SI --- 0. NO"<<endl;
+		cin>>op;
+	}while(!(op==0));
+}
+void articulos(int matriz[][5],int ren)
+{
+	for(int f=1;f<ren;f++)
+		for(int c=1;c<5;c++)
+			
+			if(f==1)
+			{
+				
+				matriz[1][5]+=matriz[f][c];
+				if(c==4)
+				{
+					cout<<"total de Producto 1 = "<<matriz[1][5]<<endl;
+				}
+			}
+			else if(f==2)
+			{
+				int producto2=0;
+				matriz[2][5]+=matriz[f][c];
+				if(c==4)
+				{
+					cout<<"total de Producto 2 = "<<matriz[2][5]<<endl;
+				}
+			}
+			else if(f==3)
+			{
+				int producto3=0;
+				matriz[3][5]+=matriz[f][c];
+				if(c==4)
+				{
+					cout<<"total de Producto 3 = "<<matriz[3][5]<<endl;
+				}
+		   }
+			else if(f==4)
+			{
+				int producto4=0;
+				matriz[4][5]+=matriz[f][c];
+				if(c==4)
+				{
+					cout<<"total de Producto 4 = "<<matriz[4][5]<<endl;
+				}
+		   }
+			else if(f==5)
+			{
+				int producto5=0;
+				matriz[5][5]+=matriz[f][c];
+				if(c==4)
+				{
+					cout<<"total de Producto 5 = "<<matriz[5][5]<<endl;
+				}	
+		   }
+}
+void vendedor(int matriz[][5],int ren)
+{
+	for(int c=1;c<5;c++)	
+		for(int f=1;f<=ren;f++)
+		{	
+				if(c==1)
+			{
+				matriz[6][1]+=matriz[f][c];
+				if(f==5)
+				{
+					cout<<"total de vendedor 1 = "<<matriz[6][1]<<endl;
+				}
+			}
+			else if(c==2)
+			{
+				
+				matriz[6][2]+=matriz[f][c];
+				if(f==5)
+				{
+					cout<<"total de vendedor 2 = "<<matriz[6][2]<<endl;
+				}
+			}
+				
+			else if(c==3)
+			{
+				int ven3=0;
+				matriz[6][3]+=matriz[f][c];
+				if(f==5)
+				{
+					cout<<"total de vendedor 3 = "<<matriz[6][3]<<endl;
+				}
+			}
+			else if(c==4)
+			{
+				int ven4=0;
+				matriz[6][4]+=matriz[f][c];
+				if(f==5)
+				{
+					cout<<"total de vendedor 4 = "<<matriz[6][4]<<endl;
+				}
+	        }
+        }	 
+}
