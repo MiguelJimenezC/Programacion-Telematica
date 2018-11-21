@@ -1,0 +1,109 @@
+// Example program
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+  int matriz[20][20]={0},pluma;
+  int op,columna=0,fila=0,girar=2,num,numa,nume;
+  
+  for(int c=0;c<20;c++)
+  	for(int f=0;f<20;f++)
+  		matriz[f][c]=-1;
+  do
+  {
+  cout<<"---MENU---"<<endl;
+  cout<<"1. Pluma hacia arriba"<<endl;
+  cout<<"2. Pluma hacia abajo"<<endl;
+  cout<<"3. Girar a la derecha"<<endl;
+  cout<<"4. Girar a la Izquierda"<<endl;
+  cout<<"5. Avanzar espacios"<<endl;
+  cout<<"6. Imprimir Escenario"<<endl;
+  cout<<"7. Salir"<<endl;
+  cin>>op;
+  
+  switch (op)
+  {
+      case 1:
+      pluma=-1;
+      cout<<"Pluma hacia arriba"<<endl;
+      cout<<pluma;
+      break;
+      
+      case 2:
+      pluma=1;
+      cout<<"Pluma hacia Abajos"<<endl;
+      cout<<pluma;
+      break;
+      
+      case 3:
+        if(girar == 4)
+        girar = 1;
+        else
+        girar++;
+        cout << "Gira a la derecha";
+        break;
+      
+      case 4:
+        if(girar == 1)
+        girar = 4;
+        else
+        girar--;
+        cout << "Gira a la Izquierda";
+        break;
+        
+        
+		case 5:
+        	cout<<"Ingresa el numero de cuadros a avanzar"<<endl;
+        	cin>>num;
+        
+        	numa=num;
+        	numa+=fila;
+        	nume=num;
+       		nume+=columna;
+        
+        	if(girar==1)
+       		{
+           	for(;fila>(numa-(num*2));fila--)
+           	matriz[fila][columna]=pluma;
+        	}
+       		 else if(girar==2)
+        	{
+			for(;columna<nume;columna++)
+           	matriz[fila][columna]=pluma; 
+        	}
+        	else if(girar==3)
+        	{
+            for(;fila<numa;fila++)
+            matriz[fila][columna]=pluma;
+       		}
+       		else
+        	{
+        	while(columna>(nume-(num*2)))
+        	{
+			matriz[fila][columna]=pluma;
+			columna--;
+		    }
+        	}
+       		 break;
+        
+       case 6:
+        for(int i=0;i<20;i++)
+            for(int j=0;j<20;j++)
+            {
+            	if(matriz[i][j]== 1)
+            	cout<<"*";
+            	
+            	else
+            	cout<<" ";
+               
+                if(j==19)
+                cout<<endl;
+            }
+        break;
+      
+    
+  }
+  }while(op!=7);
+  
+}
