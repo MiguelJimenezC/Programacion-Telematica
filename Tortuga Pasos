@@ -1,6 +1,8 @@
 // Example program
 #include <iostream>
 #include <string>
+void imprimir(int matriz[][20]);
+
 using namespace std;
 int main()
 {
@@ -64,46 +66,88 @@ int main()
         
         	if(girar==1)
        		{
-           	for(;fila>(numa-(num*2));fila--)
-           	matriz[fila][columna]=pluma;
+            	for(;fila>(numa-(num*2));fila--)
+            	    if(pluma==1)
+            	        if(fila>20 || fila<20)
+           	            matriz[fila][columna]=pluma;
+           	            else
+           	            {
+           	            cout<<"Fuera del rango";
+           	            fila=19;
+           	            return 1;
+           	            }
         	}
-       		 else if(girar==2)
+       		else if(girar==2)
         	{
-			for(;columna<nume;columna++)
-           	matriz[fila][columna]=pluma; 
+			    for(;columna<nume;columna++)
+			    
+			    if(columna>20 || columna<20)
+           	            matriz[fila][columna]=pluma;
+           	            else
+           	            {
+           	            cout<<"Fuera del rango";
+           	            columna=19;
+           	            return 1;
+           	            }
         	}
         	else if(girar==3)
         	{
-            for(;fila<numa;fila++)
-            matriz[fila][columna]=pluma;
+                for(;fila<numa;fila++)
+                
+                    if(fila>20 || fila<20)
+           	            matriz[fila][columna]=pluma;
+           	            else
+           	            {
+           	            cout<<"Fuera del rango"<<endl;
+           	            fila=19;
+           	            }
+           	            
+                ;
        		}
        		else
         	{
         	while(columna>(nume-(num*2)))
         	{
-			matriz[fila][columna]=pluma;
-			columna--;
+			    if(pluma==1)
+			    {
+           	            if(fila>20 || fila<20)
+           	            {
+           	            matriz[fila][columna]=pluma;
+           	            columna--;
+           	            }
+           	            else
+           	            {
+           	            cout<<"Fuera del rango"<<endl;
+           	            columna=19;
+           	            }
+           	            
+			    
+			    }
 		    }
         	}
        		 break;
         
        case 6:
-        for(int i=0;i<20;i++)
-            for(int j=0;j<20;j++)
-            {
-            	if(matriz[i][j]== 1)
-            	cout<<"*";
-            	
-            	else
-            	cout<<" ";
-               
-                if(j==19)
-                cout<<endl;
-            }
+            imprimir(matriz);
         break;
       
     
   }
   }while(op!=7);
   
+}
+void imprimir(int matriz[][20])
+{
+    for(int i=0;i<20;i++)
+            for(int j=0;j<20;j++)
+            {
+            	if(matriz[i][j]== 1)
+            	cout<<"[*]";
+            	
+            	else
+            	cout<<"[ ]";
+               
+                if(j==19)
+                cout<<endl;
+            }
 }
